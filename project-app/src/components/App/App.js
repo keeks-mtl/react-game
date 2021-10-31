@@ -1,9 +1,9 @@
-import "./App.css";
+import GameCard from "./../Card/Card";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World.</h1>
+    <div>
+      <GameCard hero01="02" />
     </div>
   );
 }
