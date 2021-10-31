@@ -1,9 +1,10 @@
-import GameCard from "./../Card/Card";
+// import './App.css';
+import GameCards from "../UI/Cards/GameCards";
 
 function App() {
   return (
-    <div>
-      <GameCard hero01="02" />
+    <div className="App">
+      <GameCards />
     </div>
   );
 }
