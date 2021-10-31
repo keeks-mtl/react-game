@@ -1,10 +1,10 @@
 import './App.css';
-import GameCard from './../Card/Card';
+import GameCards from '../UI/Cards/GameCards';
 
 function App() {
   return (
     <div className="App">
-      <GameCard />
+      <GameCards />
     </div>
   );
 }

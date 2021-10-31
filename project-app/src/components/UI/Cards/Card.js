@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+// import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import api from './../Api/Api';
+import api from '../../Api/Api';
 
-const GameCard = () => {
+const GameCard = ({hero01}) => {
     const [heroData, setHeroData] = useState([]);
     const [ready, setReady] = useState(false);
     useEffect(() => {
         const fetchApi = async () => {
-            const { data } = await api.get('/01');
+            const { data } = await api.get(hero01);
             setHeroData(data);
             setReady(true);
         };
         fetchApi();
-    }, []);
+    }, [hero01]);
 
     return (
         ready ? (
