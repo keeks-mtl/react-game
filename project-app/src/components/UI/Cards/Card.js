@@ -1,54 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
-// import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import api from '../../Api/Api';
 
-const GameCard = ({hero01}) => {
+const GameCard = ({ hero }) => {
     const [heroData, setHeroData] = useState([]);
     const [ready, setReady] = useState(false);
     useEffect(() => {
         const fetchApi = async () => {
-            const { data } = await api.get(hero01);
+            const { data } = await api.get(hero);
             setHeroData(data);
             setReady(true);
         };
         fetchApi();
-    }, [hero01]);
+    }, [hero]);
 
     return (
         ready ? (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 250, maxHeight: 600 }}>
                 <CardMedia
                     component="img"
-                    height="300"
+                    height="200"
                     image={heroData.image.url}
                     alt="hero image"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h4" component="div">
+                    <Typography sx={{ textAlign: 'center', marginBottom: 2 }} gutterBottom variant="h4" component="div">
                     {heroData.name}
                     </Typography>
-                    <Typography variant="h6" color="text.secondary">
-                    {`Combar: ${heroData.powerstats.combat}`}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
+                    <Button sx={{ backgroundColor: 'purple', marginBottom: 2 }} variant="contained">
+                    {`Combat: ${heroData.powerstats.combat}`}
+                    </Button>
+                    <Button sx={{ backgroundColor: 'purple', marginBottom: 2 }} variant="contained">
                     {`Durability: ${heroData.powerstats.durability}`}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
+                    </Button>
+                    <Button sx={{ backgroundColor: 'purple', marginBottom: 2 }} variant="contained">
                     {`Intelligence: ${heroData.powerstats.intelligence}`}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
+                    </Button>
+                    <Button sx={{ backgroundColor: 'purple', marginBottom: 2 }} variant="contained">
                     {`Power: ${heroData.powerstats.power}`}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
+                    </Button>
+                    <Button sx={{ backgroundColor: 'purple', marginBottom: 2 }} variant="contained">
                     {`Speed: ${heroData.powerstats.speed}`}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
+                    </Button>
+                    <Button sx={{ backgroundColor: 'purple', marginBottom: 2 }} variant="contained">
                     {`Strength: ${heroData.powerstats.strength}`}
-                    </Typography>
+                    </Button>
                 </CardContent>
                 </Card>
         ) : (
